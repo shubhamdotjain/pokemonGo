@@ -16,30 +16,44 @@
 {% for pokemon in pokedex %}
 	<p>{{pokemon.pokemon_name}} : 
 		type {{pokemon.pokemon_type}}</p>
-	<img src='{{pokemon.pokemon_image}}'>	
-	<a href='/edit/{{pokemon.id}}'>edit</a>
+		
+	<a href='/edit/{{pokemon.id}}'><img src='{{pokemon.pokemon_image}}'></a>
 	<hr>
 {% endfor %}
-
 <nav aria-label="Page navigation">
   <ul class="pagination">
     <li>
-      <a href="#" aria-label="Previous">
+      <a href="/p/{{prev}}" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li><a href="page=1">1</a></li>
-    <li><a href="page=2">2</a></li>
-    <li><a href="page=3">3</a></li>
-    <li><a href="page=5">4</a></li>
-    <li><a href="page=6">5</a></li>
+    {% for index in iter_arr %}
+    <li><a href="/p/{{index}}">{{index}}</a></li>
+    {% endfor %}
     <li>
-      <a href="#" aria-label="Next">
+      <a href="/p/{{next}}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
   </ul>
 </nav>
+<!-- <nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="/?page={{prev}}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    {% for index in iter_arr %}
+    <li><a href="/?page=1">{{index}}</a></li>
+    {% endfor %}
+    <li>
+      <a href="/?page={{next}}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav> -->
 
 
 	<!-- <div class='row'>

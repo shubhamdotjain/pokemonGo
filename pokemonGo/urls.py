@@ -14,6 +14,10 @@ urlpatterns = patterns('',
     url(r'^searchPOST$', 'search.views.srchpost', name = 'searchPOST'),
     url(r'^searchLISTJS$', 'search.views.srchlistjs', name = 'searchLISTJS'),
     url(r'^edit/(\d+)', 'search.views.edit', name = 'edit'),
+    url(r'^p/(?P<page_id>\d+)', 'search.views.index2', name = 'index2'),
+    url(r'^pokemon/(?P<pokemon_id>\d+)/(?P<pokemon_name>[\w\-]+)', 'search.views.description', name = 'description    '),
+    url(r'^pokemon/(?P<pokemon_id>\d+)/', 'search.views.short_url', name = 'short   '),
+    #un-named grouping
     #un-named grouping
     #url(r'^search/(\d+)', 'search.views.srch2', name = 'search2'),
     #named-grouping
