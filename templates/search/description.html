@@ -53,7 +53,7 @@
 
 			<a target='_blank' href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}&title=Pokemon&summary=&source="><button class='btn btn-primary'>Share on LinkedIn</button></a><br>
 
-			<a target='_blank' href="whatsapp://send?text=Hey, check this out http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}&title=Pokemon&summary=&source="><button class='btn btn-primary'>Share on Whatsapp</button></a><br>
+			<a id="whatsapp" target='_blank' href="whatsapp://send?text=Hey, check this out {{pokemon.pokemon_name}} http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}&title=Pokemon&summary=&source="><button class='btn btn-primary'>Share on Whatsapp</button></a><br>
 
 
 			<a target='_blank' href="mailto:shubhamjain7495@gmail.com?&subject=Bug report &body=Hello,%20please%20find%20this%20%0A%0Ahttp%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}"><button class='btn btn-success'>Send Email</button></a>
@@ -68,6 +68,24 @@
 
 {% endblock content %}
 
+{% block scripts %}
+	<script type=" text/javascript">
+		if(navigator.userAgent.match('Android')==null){
+		$(document).ready(function(){alert(navigator.userAgent);
+
+		$('#whatsapp').hide();
+		document.getElementById('whatsapp').style.display='none';
+
+
+		}
+
+
+			);
+	}
+
+	</script>
+
+{% endblock scripts %}
 
 
 
