@@ -36,8 +36,26 @@
 {% block content %}
 
 	<h1>You Searched for {{pokemon.pokemon_id}} {{pokemon.pokemon_name}} </h1>
+	<div class='row'>
 
-	<img src="{{pokemon.pokemon_image}}">
+		<div class='col-md-6'>
+			<img src="{{pokemon.pokemon_image}}">
+		</div>
+		<div class='col-md-6'>
+			<!-- <button class='btn btn-success'><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}">Share on Facebook</a></button> -->
+
+			<a target='_blank' href="https://www.facebook.com/sharer/sharer.php?u=http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}"><button class='btn btn-success'>Share on Facebook</button></a>
+
+			<a target='_blank' href="https://twitter.com/home?status=YO CHECK THIS OUT http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}"><button class='btn btn-primary'>Share on Twitter</butoon></a>
+
+			<a target='_blank' href="https://plus.google.com/share?url=http%3A//still-taiga-19362.herokuapp.com/pokemon/309/Jolteon"><button class='btn btn-warning'>Share on Google+</button></a>
+		</div>
+	</div>
+
+	
+
+	
+
 
 
 {% endblock content %}
