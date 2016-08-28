@@ -44,19 +44,21 @@
 		<div class='col-md-6'>
 			<!-- <button class='btn btn-success'><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}">Share on Facebook</a></button> -->
 
-			<a target='_blank' href="https://www.facebook.com/sharer/sharer.php?u=http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}"><button class='btn btn-success'>Share on Facebook</button></a><br>
+			<a target='_blank' href="https://www.facebook.com/sharer/sharer.php?u=http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}"><button class='btn btn-success'>Share on Facebook</button></a>
 
-			<a target='_blank' href="https://twitter.com/home?status=YO CHECK THIS OUT http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}"><button class='btn btn-primary'>Share on Twitter</button></a><br>
+			<a target='_blank' href="https://twitter.com/home?status=YO CHECK THIS OUT http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}"><button class='btn btn-primary'>Share on Twitter</button></a>
 
 			<a target='_blank' href="https://plus.google.com/share?url=http%3A//still-taiga-19362.herokuapp.com/pokemon/309/Jolteon"><button class='btn btn-warning'>Share on Google+</button></a><br>
 
 
-			<a target='_blank' href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}&title=Pokemon&summary=&source="><button class='btn btn-primary'>Share on LinkedIn</button></a><br>
+			<a target='_blank' href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}&title=Pokemon&summary=&source="><button class='btn btn-primary'>Share on LinkedIn</button></a>
 
-			<a id="whatsapp" target='_blank' href="whatsapp://send?text=Hey, check this out {{pokemon.pokemon_name}} http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}&title=Pokemon&summary=&source="><button class='btn btn-primary'>Share on Whatsapp</button></a><br>
-
+			
 
 			<a target='_blank' href="mailto:shubhamjain7495@gmail.com?&subject=Bug report &body=Hello,%20please%20find%20this%20%0A%0Ahttp%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}"><button class='btn btn-success'>Send Email</button></a>
+
+			<a id="whatsapp" target='_blank' href="whatsapp://send?text=Hey, check this out {{pokemon.pokemon_name}} http%3A//still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}&title=Pokemon&summary=&source="><button class='btn btn-primary'>Share on Whatsapp</button></a>
+
 		</div>
 	</div>
 
@@ -71,7 +73,7 @@
 {% block scripts %}
 	<script type=" text/javascript">
 		if(navigator.userAgent.match('iPhone')==null || navigator.userAgent.match('Android')==null ){
-		$(document).ready(function(){alert(navigator.userAgent);
+		$(document).ready(function(){
 
 		$('#whatsapp').hide();
 		document.getElementById('whatsapp').style.display='none';

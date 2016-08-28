@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.conf import settings
-from random import shuffle
+from random import shuffle,randint
 import time
 import os
 
@@ -204,3 +204,35 @@ def oddish(request):
 	context_dict={}
 
 	return render(request,'search/oddish.html',context_dict)
+
+def game(request):
+	pokemon_arr=Pokedex.objects.all()
+	
+	correct_pokemon=pokemon_arr[randint(0,len(pokemon_arr)-1)]
+	random_pokemon1=pokemon_arr[randint(0,len(pokemon_arr)-1)]
+	random_pokemon2=pokemon_arr[randint(0,len(pokemon_arr)-1)]
+	random_pokemon3=pokemon_arr[randint(0,len(pokemon_arr)-1)]
+
+	# random_list= random.shuffle(pokemon_arr)
+	# print random_list
+	print pokemon_arr
+	print type(pokemon_arr)
+
+
+	context_dict={}
+	poke_list=[correct_pokemon.pokemon_name,random_pokemon1.pokemon_name,random_pokemon2.pokemon_name,random_pokemon3.pokemon_name]
+	print correct_pokemon.pokemon_name
+	print poke_list[0]
+	#sj=shuffle(poke_list)
+	# x = [[i] for i in range(10)]
+	# shuffle(x)
+	# print x
+	context_dict['poke_list']=poke_list
+	
+	context_dict['correct_pokemon']=correct_pokemon
+	# context_dict['random_pokemon1']=random_pokemon1
+	# context_dict['random_pokemon2']=random_pokemon1
+	# context_dict['random_pokemon3']=random_pokemon1
+
+	return render(request,'search/game.html',context_dict)
+
