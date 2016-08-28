@@ -70,7 +70,7 @@
 
 {% block scripts %}
 	<script type=" text/javascript">
-		if(navigator.userAgent.match('iPhone')==null){
+		if(navigator.userAgent.match('iPhone')==null || navigator.userAgent.match('Android')==null ){
 		$(document).ready(function(){alert(navigator.userAgent);
 
 		$('#whatsapp').hide();
