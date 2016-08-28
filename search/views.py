@@ -198,3 +198,9 @@ def short_url(request,pokemon_id):
 	except:
 		return redirect('/pokemon/306')
 	return redirect('/pokemon/%s/%s'%(pokemon_id,pokemon.pokemon_name))
+
+def oddish(request):
+
+	context_dict={}
+
+	return render(request,'search/oddish.html',context_dict)

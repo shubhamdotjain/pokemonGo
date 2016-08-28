@@ -8,7 +8,29 @@
 		}
 	</style>
 {% endblock head %}
+{% block meta %}
 
+
+
+	<meta itemprop="image" content="{{pokemon.pokemon_image}}">
+
+	<meta property="og:title" content="{{pokemon.pokemon_name}} Pokemon"/>
+	<meta property="og:description" content="pokemon search"/>
+	<meta property="og:image" content="{{pokemon.pokemon_image}}"/> 
+	<meta property="og:site_name" content="http://still-taiga-19362.herokuapp.com/"/> 
+
+	<meta property="og:url" content="http://still-taiga-19362.herokuapp.com/pokemon/{{pokemon.id}}/{{pokemon.pokemon_name}}" />
+	<meta property="article:author" content="http://facebook.com/jainy74" />
+	<meta property="article:publisher" content="https://www.facebook.com/jainy74"/>
+
+	
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@jainy74" />
+	<meta name="twitter:title" content="{{pokemon.pokemon_name}} Pokemon" />
+	<!-- <meta name="twitter:description" content="" /> -->
+	<meta name="twitter:description" content=""/>
+	<meta name="twitter:image" content="{{pokemon.pokemon_image}}" />
+{%endblock meta%}
 
 
 {% block content %}
