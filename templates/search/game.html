@@ -6,6 +6,11 @@
 		img{
 			width: 150px;	
 		}
+		.correct{background-color: "Red";
+		}}
+		#correct{
+			background-color: "Red";
+		}
 	</style>
 {% endblock head %}
 {% block meta %}
@@ -36,8 +41,13 @@
 {% block content %}
 
 	<h1>What is the name of the pokemon? </h1>
-	<img src="{{correct_pokemon.pokemon_image}}">
+	<a target="_blank"href="http://still-taiga-19362.herokuapp.com/pokemon/{{correct_pokemon.id}}/{{correct_pokemon.pokemon_name}}"><img src="{{correct_pokemon.pokemon_image}}"></a>
+	{% for items in poke_list %}
+	<button id="{{items}}">{{items}}</button>
+	
 
+	{% endfor %}
+	
 	
 
 
@@ -49,12 +59,14 @@
 		
 		$(document).ready(function(){
 
+			document.getElementById("{{correct_pokemon}}").onclick=function(){
+			location.reload()
+		alert("Correct");
+		};
+
 		
 
-		}
-
-
-			);
+		});
 	
 
 	</script>

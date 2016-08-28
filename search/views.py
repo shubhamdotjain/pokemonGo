@@ -222,8 +222,10 @@ def game(request):
 	context_dict={}
 	poke_list=[correct_pokemon.pokemon_name,random_pokemon1.pokemon_name,random_pokemon2.pokemon_name,random_pokemon3.pokemon_name]
 	print correct_pokemon.pokemon_name
-	print poke_list[0]
-	#sj=shuffle(poke_list)
+	# print poke_list
+	# print poke_list[0]
+	shuffle(poke_list)
+	# print poke_list
 	# x = [[i] for i in range(10)]
 	# shuffle(x)
 	# print x
