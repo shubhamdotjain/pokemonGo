@@ -59,14 +59,6 @@ def srchredirect(request,search_string):
 	
 	return render(request,'search/searchREDIRECT.html',context_dict)
 
-def srchpost(request):
-	search_string = request.POST.get("searchstring") or ''
-
-	context_dict = {}
-	context_dict['search_string'] = search_string
-	context_dict['result_arr'] = search_pokemon(search_string)
-	
-	return render(request,'search/searchPOST.html',context_dict)
 
 def srchget(request):
 	search_string = request.GET.get("searchstring") or ''
@@ -205,36 +197,59 @@ def oddish(request):
 
 	return render(request,'search/oddish.html',context_dict)
 
-def game(request):
+def game1(request):
 	pokemon_arr=Pokedex.objects.all()
+	score = request.GET.get("score") or '0'
+	secs = request.GET.get("secs") or '60'
+	
 	
 	correct_pokemon=pokemon_arr[randint(0,len(pokemon_arr)-1)]
 	random_pokemon1=pokemon_arr[randint(0,len(pokemon_arr)-1)]
 	random_pokemon2=pokemon_arr[randint(0,len(pokemon_arr)-1)]
 	random_pokemon3=pokemon_arr[randint(0,len(pokemon_arr)-1)]
 
-	# random_list= random.shuffle(pokemon_arr)
-	# print random_list
-	print pokemon_arr
-	print type(pokemon_arr)
+	
+	poke_list=[correct_pokemon.pokemon_name,random_pokemon1.pokemon_name,random_pokemon2.pokemon_name,random_pokemon3.pokemon_name]
+	
+	shuffle(poke_list)
+	context_dict={}
+	context_dict['score']=score
+	context_dict['secs']=secs
+	context_dict['poke_list']=poke_list
+	context_dict['correct_pokemon']=correct_pokemon
 
+	return render(request,'search/game1.html',context_dict)
+
+def game(request):
+
+	
+
+	pokemon_arr=Pokedex.objects.all()
+	score = request.GET.get("score") or '0'
+	if request.method=="POST":
+		score=request.POST.get('user_score') or ''
+		return HttpResponse(score)
+	correct_pokemon=pokemon_arr[randint(0,len(pokemon_arr)-1)]
+	random_pokemon1=pokemon_arr[randint(0,len(pokemon_arr)-1)]
+	random_pokemon2=pokemon_arr[randint(0,len(pokemon_arr)-1)]
+	random_pokemon3=pokemon_arr[randint(0,len(pokemon_arr)-1)]
+
+	
+	poke_list=[correct_pokemon.pokemon_name,random_pokemon1.pokemon_name,random_pokemon2.pokemon_name,random_pokemon3.pokemon_name]
+	
+	shuffle(poke_list)
 
 	context_dict={}
-	poke_list=[correct_pokemon.pokemon_name,random_pokemon1.pokemon_name,random_pokemon2.pokemon_name,random_pokemon3.pokemon_name]
-	print correct_pokemon.pokemon_name
-	# print poke_list
-	# print poke_list[0]
-	shuffle(poke_list)
-	# print poke_list
-	# x = [[i] for i in range(10)]
-	# shuffle(x)
-	# print x
+	context_dict['score']=score
 	context_dict['poke_list']=poke_list
-	
 	context_dict['correct_pokemon']=correct_pokemon
-	# context_dict['random_pokemon1']=random_pokemon1
-	# context_dict['random_pokemon2']=random_pokemon1
-	# context_dict['random_pokemon3']=random_pokemon1
-
 	return render(request,'search/game.html',context_dict)
 
+def srchpost(request):
+	search_string = request.POST.get("searchstring") or ''
+
+	context_dict = {}
+	context_dict['search_string'] = search_string
+	context_dict['result_arr'] = search_pokemon(search_string)
+	
+	return render(request,'search/searchPOST.html',context_dict)
